@@ -50,31 +50,37 @@ function getCompanySlug(companyName: string): string | undefined {
 // HERO SECTION
 // ============================================================================
 function HeroSection() {
-  const totalMembers = teamMembers.length;
-  const collectiveYears = "200+";
+  const leadership = getTeamByTier("Leadership").filter(m => isPhotoUrl(m.photo));
+  const venturePartners = getTeamByTier("VenturePartner").filter(m => isPhotoUrl(m.photo));
+  const healthcareAdvisors = getTeamByTier("HealthcareAdvisor").filter(m => isPhotoUrl(m.photo));
+  const studioTeam = getTeamByTier("StudioTeam").filter(m => isPhotoUrl(m.photo));
+  const totalMembers = leadership.length + venturePartners.length + healthcareAdvisors.length + studioTeam.length;
 
   return (
-    <section className="relative bg-navy pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-white pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-teal/10 blur-3xl" />
+        <div className="absolute -bottom-24 right-[10%] h-64 w-64 rounded-full bg-accent-blue/10 blur-3xl" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto text-center">
         <ScrollReveal animation="fade-up">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-navy/5 rounded-full text-navy text-sm font-medium mb-6">
             <Users className="w-4 h-4" />
             {totalMembers} Team Members
           </span>
         </ScrollReveal>
 
         <ScrollReveal animation="fade-up" delay={0.1}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6">
             Our <span className="text-teal">Team</span>
           </h1>
         </ScrollReveal>
 
         <ScrollReveal animation="fade-up" delay={0.2}>
-          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            A collective of {collectiveYears} years of experience across venture capital,
-            technology, healthcare, and entrepreneurship. Meet the people building
-            the next generation of transformative companies.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Our management team is purpose-built and mission-driven to conceive, validate,
+            design, build, market and scale tech companies from scratch.
           </p>
         </ScrollReveal>
 
@@ -82,15 +88,14 @@ function HeroSection() {
         <ScrollReveal animation="fade-up" delay={0.3}>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12 mt-10">
             {[
-              { value: "7", label: "Leadership" },
-              { value: "11", label: "Venture Partners" },
-              { value: "5", label: "Healthcare Advisors" },
-              { value: "20", label: "Studio Team" },
-              { value: "6", label: "Founders" },
-            ].map((stat) => (
+              { value: leadership.length.toString(), label: "Leadership" },
+              { value: venturePartners.length.toString(), label: "Venture Partners" },
+              { value: healthcareAdvisors.length.toString(), label: "Healthcare Advisors" },
+              { value: studioTeam.length.toString(), label: "Studio Team" },
+            ].filter(s => parseInt(s.value) > 0).map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold text-navy">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -149,13 +154,13 @@ function LeadershipCard({ member, index }: { member: TeamMember; index: number }
 
         <div className="flex flex-col items-center text-center">
           {/* Photo/Initials */}
-          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+          <div className="w-36 h-36 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
             {isPhotoUrl(member.photo) ? (
               <Image
                 src={member.photo}
                 alt={member.name}
-                width={96}
-                height={96}
+                width={144}
+                height={144}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -207,13 +212,13 @@ function VenturePartnerCard({ member, index }: { member: TeamMember; index: numb
         <div className="absolute top-0 left-0 right-0 h-1 bg-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <div className="flex flex-col items-center text-center">
-          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+          <div className="w-36 h-36 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
             {isPhotoUrl(member.photo) ? (
               <Image
                 src={member.photo}
                 alt={member.name}
-                width={96}
-                height={96}
+                width={144}
+                height={144}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -263,13 +268,13 @@ function HealthcareAdvisorCard({ member, index }: { member: TeamMember; index: n
         </div>
 
         <div className="flex flex-col items-center text-center pt-4">
-          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+          <div className="w-36 h-36 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
             {isPhotoUrl(member.photo) ? (
               <Image
                 src={member.photo}
                 alt={member.name}
-                width={96}
-                height={96}
+                width={144}
+                height={144}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -308,13 +313,13 @@ function StudioTeamCard({ member, index }: { member: TeamMember; index: number }
   return (
     <div className="group bg-white rounded-xl border border-border p-4 transition-all duration-200 hover:shadow-md hover:border-accent-blue/20">
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+        <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
           {isPhotoUrl(member.photo) ? (
             <Image
               src={member.photo}
               alt={member.name}
-              width={48}
-              height={48}
+              width={80}
+              height={80}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -374,13 +379,13 @@ function FounderCardContent({
       <div className="absolute top-0 left-0 right-0 h-1 bg-navy rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
       <div className="flex flex-col items-center text-center">
-        <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+        <div className="w-36 h-36 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
           {isPhotoUrl(member.photo) ? (
             <Image
               src={member.photo}
               alt={member.name}
-              width={96}
-              height={96}
+              width={144}
+              height={144}
               className="w-full h-full object-cover"
             />
           ) : (
@@ -412,11 +417,11 @@ function FounderCardContent({
 // MAIN TEAM PAGE
 // ============================================================================
 export default function TeamPage() {
-  const leadership = getTeamByTier("Leadership");
-  const venturePartners = getTeamByTier("VenturePartner");
-  const healthcareAdvisors = getTeamByTier("HealthcareAdvisor");
-  const studioTeam = getTeamByTier("StudioTeam");
-  const founders = getTeamByTier("Founder");
+  const leadership = getTeamByTier("Leadership").filter(m => isPhotoUrl(m.photo));
+  const venturePartners = getTeamByTier("VenturePartner").filter(m => isPhotoUrl(m.photo));
+  const healthcareAdvisors = getTeamByTier("HealthcareAdvisor").filter(m => isPhotoUrl(m.photo));
+  const studioTeam = getTeamByTier("StudioTeam").filter(m => isPhotoUrl(m.photo));
+  const founders = getTeamByTier("Founder").filter(m => isPhotoUrl(m.photo));
 
   return (
     <div className="min-h-screen bg-background">
@@ -445,7 +450,7 @@ export default function TeamPage() {
       </section>
 
       {/* Venture Partners Section */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             title="Venture Partners"
@@ -505,12 +510,13 @@ export default function TeamPage() {
       </section>
 
       {/* Studio Team Section */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      {studioTeam.length > 0 && (
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             title="Studio Team"
             count={studioTeam.length}
-            description="The talented individuals who power our venture studio operations—engineering, design, product, and operations."
+            description="Our companies get exclusive access to a full-stack studio team. Our culture of integrity, ingenuity and generosity has attracted the best and the brightest in their respective fields."
           />
 
           <ScrollRevealGroup
@@ -524,8 +530,10 @@ export default function TeamPage() {
           </ScrollRevealGroup>
         </div>
       </section>
+      )}
 
       {/* Founders Section */}
+      {founders.length > 0 && (
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
@@ -545,18 +553,19 @@ export default function TeamPage() {
           </ScrollRevealGroup>
         </div>
       </section>
+      )}
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-navy">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
               Join Our Team
             </h2>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.1}>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               We&apos;re always looking for exceptional talent to join our studio team
               or lead our next portfolio company.
             </p>
@@ -572,7 +581,7 @@ export default function TeamPage() {
               </Link>
               <Link
                 href="/studio"
-                className="inline-flex items-center justify-center px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg backdrop-blur transition-colors"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-navy text-navy hover:bg-navy/5 font-semibold rounded-lg transition-colors"
               >
                 Learn About Our Studio
               </Link>

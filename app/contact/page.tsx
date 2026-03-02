@@ -202,18 +202,18 @@ export default function ContactPage() {
           <div className="space-y-6 lg:sticky lg:top-24">
             {/* Direct Contact Card */}
             <ScrollReveal animation="fade-left" delay={0.1}>
-              <div className="bg-navy rounded-2xl p-8 text-white relative overflow-hidden">
-                  <div>
+              <div className="bg-white rounded-2xl p-8 border border-border shadow-sm relative overflow-hidden">
+                <div>
                   <h3 className="text-xl font-bold mb-6">Direct Contact</h3>
                   <a
                     href="mailto:hello@mission3a.com"
                     className="flex items-center gap-4 group"
                   >
-                    <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
-                      <Mail className="w-5 h-5" />
+                    <div className="w-10 h-10 bg-navy/5 rounded-xl flex items-center justify-center group-hover:bg-navy/10 transition-colors flex-shrink-0">
+                      <Mail className="w-5 h-5 text-navy" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/60 mb-0.5">Email Us</p>
+                      <p className="text-xs text-muted-foreground mb-0.5">Email Us</p>
                       <p className="font-medium group-hover:text-teal transition-colors">
                         hello@mission3a.com
                       </p>

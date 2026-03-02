@@ -37,6 +37,42 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  main section {
+    background-color: var(--color-background);
+  }
+
+  main section + section {
+    position: relative;
+  }
+
+  main section + section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(520px, 72vw);
+    height: 34px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(26, 60, 110, 0.92) 0 5px, #ffffff 5px 8px, transparent 8px),
+      radial-gradient(circle at 43% 50%, rgba(20, 184, 166, 0.78) 0 2.75px, transparent 3px),
+      radial-gradient(circle at 57% 50%, rgba(59, 130, 246, 0.68) 0 2.75px, transparent 3px),
+      linear-gradient(
+        90deg,
+        transparent 0 8%,
+        rgba(26, 60, 110, 0.22) 8% 42%,
+        transparent 42% 58%,
+        rgba(20, 184, 166, 0.22) 58% 92%,
+        transparent 92% 100%
+      );
+    background-repeat: no-repeat;
+  }
+
+  main section.sticky::before {
+    display: none;
+  }
 }
 
 /* Custom Animations */
@@ -84,15 +120,4 @@
 .scroll-reveal-visible {
   opacity: 1 !important;
   transform: translateY(0) translateX(0) !important;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
-    --color-muted: #262626;
-    --color-muted-foreground: #a3a3a3;
-    --color-border: #404040;
-  }
 }

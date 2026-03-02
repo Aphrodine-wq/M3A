@@ -28,16 +28,16 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-dark text-white">
+    <footer className="bg-white text-foreground border-t border-border">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Column 1: Logo & Description */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-white">Mission 3A</span>
+              <span className="text-2xl font-bold text-navy">Mission 3A</span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               A venture studio founded in 2018, co-founding and scaling
               technology startups across healthcare, IoT, consumer, and SaaS
               verticals.
@@ -48,14 +48,14 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-2 bg-navy/5 text-navy hover:bg-navy/10 rounded-lg transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@mission3a.com"
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-2 bg-navy/5 text-navy hover:bg-navy/10 rounded-lg transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -65,7 +65,7 @@ export function Footer() {
 
           {/* Column 2: Navigation */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-muted-foreground hover:text-navy transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Column 3: Office Locations */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
               Offices
             </h3>
             <div className="space-y-4">
@@ -92,9 +92,9 @@ export function Footer() {
                 <div key={office.name} className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-medium text-white">{office.name}</p>
-                    <p className="text-sm text-gray-400">{office.address}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">
+                    <p className="font-medium text-navy">{office.name}</p>
+                    <p className="text-sm text-muted-foreground">{office.address}</p>
+                    <p className="text-xs text-muted-foreground/80 mt-0.5">
                       {office.description}
                     </p>
                   </div>
@@ -105,7 +105,7 @@ export function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
               Contact
             </h3>
             <div className="space-y-4">
@@ -113,7 +113,7 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-accent-blue flex-shrink-0" />
                 <a
                   href="mailto:hello@mission3a.com"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="text-muted-foreground hover:text-navy transition-colors text-sm"
                 >
                   hello@mission3a.com
                 </a>
@@ -121,7 +121,7 @@ export function Footer() {
             </div>
 
             {/* Quick CTA */}
-            <div className="mt-6 pt-6 border-t border-white/10">
+            <div className="mt-6 pt-6 border-t border-border">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-4 py-2 bg-accent-blue hover:bg-accent-blue-light text-white text-sm font-medium rounded-lg transition-colors"
@@ -134,22 +134,22 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-muted-foreground">
               © {currentYear} Mission 3A. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link
                 href="/legal/privacy-policy"
-                className="text-sm text-gray-400 hover:text-white transition-colors"
+                className="text-sm text-muted-foreground hover:text-navy transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/legal/terms"
-                className="text-sm text-gray-400 hover:text-white transition-colors"
+                className="text-sm text-muted-foreground hover:text-navy transition-colors"
               >
                 Terms of Service
               </Link>

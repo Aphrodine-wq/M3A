@@ -60,7 +60,7 @@ export default function CompanyDetailPage({ slug }: { slug: string }) {
   return (
     <div className="min-h-screen">
       {/* Back Navigation */}
-      <div className="bg-gray-50 border-b border-gray-200">
+      <div className="bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link
             href="/portfolio"
@@ -73,7 +73,7 @@ export default function CompanyDetailPage({ slug }: { slug: string }) {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gray-50 py-12 md:py-16">
+      <section className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-start gap-8">
             {/* Logo */}
@@ -249,7 +249,7 @@ export default function CompanyDetailPage({ slug }: { slug: string }) {
       </section>
 
       {/* More Companies Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-navy">More Portfolio Companies</h2>

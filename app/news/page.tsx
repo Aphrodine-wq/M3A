@@ -76,9 +76,9 @@ function FeaturedCard({ post }: { post: BlogPost }) {
       <Link href={`/news/${post.slug}`} className="group block">
         <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 lg:grid lg:grid-cols-2">
           {/* Image placeholder */}
-          <div className="h-56 lg:h-auto bg-navy flex items-center justify-center relative overflow-hidden">
+          <div className="h-56 lg:h-auto bg-gradient-to-br from-navy/10 via-accent-blue/10 to-teal/10 border-b lg:border-b-0 lg:border-r border-border flex items-center justify-center relative overflow-hidden">
             <div className="p-8 text-center">
-              <Newspaper className="w-16 h-16 text-white/20 mx-auto mb-4" />
+              <Newspaper className="w-16 h-16 text-navy/25 mx-auto mb-4" />
               <span
                 className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${styles.bg} ${styles.text}`}
               >
@@ -215,7 +215,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden bg-gray-50">
+      <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden bg-white">
 
         <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">

@@ -13,16 +13,16 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-gray-50">
+    <section id="about" className="py-20 md:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left side: Main content */}
           <ScrollReveal direction="left">
             <div>
-              <span className="text-[#3B82F6] font-semibold text-sm uppercase tracking-wider mb-4 block">
+              <span className="text-teal font-semibold text-sm uppercase tracking-wider mb-4 block">
                 About Us
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A3C6E] mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6 leading-tight">
                 {aboutContent.headline}
               </h2>
               <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
@@ -39,7 +39,7 @@ export function AboutSection() {
               const IconComponent = iconMap[item.icon];
               return (
                 <ScrollReveal key={index} delay={index * 100} direction="right">
-                  <div className="flex gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex gap-4 p-6 bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-[#1A3C6E]/10 rounded-lg flex items-center justify-center">
                         {IconComponent && <IconComponent className="w-6 h-6 text-[#1A3C6E]" />}

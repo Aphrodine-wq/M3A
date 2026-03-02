@@ -136,7 +136,7 @@ export default function NewsArticleClient({ slug }: { slug: string }) {
   return (
     <div className="min-h-screen bg-background">
       {/* Article Header */}
-      <section className="relative py-16 md:py-24 px-6 overflow-hidden bg-gray-50">
+      <section className="relative py-16 md:py-24 px-6 overflow-hidden bg-white">
 
         <div className="relative max-w-3xl mx-auto">
           {/* Back link */}
@@ -217,9 +217,9 @@ export default function NewsArticleClient({ slug }: { slug: string }) {
       </section>
 
       {/* Hero image placeholder */}
-      <div className="relative h-64 md:h-80 bg-navy overflow-hidden">
+      <div className="relative h-64 md:h-80 bg-gradient-to-br from-navy/10 via-accent-blue/10 to-teal/10 border-y border-border overflow-hidden">
         <div className="h-full flex items-center justify-center">
-          <Newspaper className="w-20 h-20 text-white/15" />
+          <Newspaper className="w-20 h-20 text-navy/25" />
         </div>
       </div>
 
@@ -260,7 +260,7 @@ export default function NewsArticleClient({ slug }: { slug: string }) {
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 md:py-20 px-6 bg-muted/30">
+        <section className="py-16 md:py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal animation="fade-up">
               <div className="flex items-center justify-between mb-10">

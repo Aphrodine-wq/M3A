@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Lightbulb,
   ClipboardCheck,
@@ -91,7 +92,7 @@ export default function StudioPage() {
       </section>
 
       {/* Stats Row */}
-      <section className="py-16 md:py-20 px-6 bg-muted/30 border-y border-border">
+      <section className="py-16 md:py-20 px-6 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto">
           <ScrollRevealGroup
             staggerDelay={0.15}
@@ -144,7 +145,7 @@ export default function StudioPage() {
                 Our Advantage
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-navy mt-3 mb-6">
-                A 30-Year Trial-Tested Process
+                A 25-Year Trial-Tested Process
               </h2>
             </div>
           </ScrollReveal>
@@ -153,7 +154,7 @@ export default function StudioPage() {
             <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
               <p>
                 What sets Mission 3A apart is our battle-tested methodology for
-                company creation. Over three decades of collective experience,
+                company creation. Over two decades of collective experience,
                 we&apos;ve refined a process that dramatically improves the odds of
                 startup success. We don&apos;t just invest in companies—we build them
                 from the ground up, applying lessons learned from both our
@@ -181,16 +182,16 @@ export default function StudioPage() {
 
           {/* Quote Callout */}
           <ScrollReveal animation="scale" delay={0.2}>
-            <div className="mt-12 p-8 bg-navy rounded-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/20 rounded-full blur-2xl" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal/20 rounded-full blur-2xl" />
+            <div className="mt-12 p-8 bg-white border border-border rounded-2xl relative overflow-hidden shadow-sm">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/10 rounded-full blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal/10 rounded-full blur-2xl" />
               <blockquote className="relative z-10">
-                <p className="text-xl md:text-2xl text-white font-medium leading-relaxed italic">
+                <p className="text-xl md:text-2xl text-navy font-medium leading-relaxed italic">
                   &quot;Building companies is hard work, but with the right process,
                   the right people, and the right partners, we&apos;re creating
                   something meaningful—one venture at a time.&quot;
                 </p>
-                <footer className="mt-4 text-white/80">
+                <footer className="mt-4 text-muted-foreground">
                   <span className="font-semibold">Trey Moore</span>
                   <span className="mx-2">•</span>
                   <span>Founding Partner, Mission 3A</span>
@@ -202,7 +203,7 @@ export default function StudioPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 md:py-28 px-6 bg-muted/30">
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -267,18 +268,26 @@ export default function StudioPage() {
                 delay={0.1 * index}
               >
                 <div className="group bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  {/* Placeholder Image Area */}
-                  <div className="relative h-48 bg-navy flex items-center justify-center overflow-hidden">
-                    <div className="text-center">
-                      <span className="text-6xl font-bold text-white/20">
-                        {office.city.slice(0, 2).toUpperCase()}
-                      </span>
-                      {office.isPrimary && (
-                        <span className="absolute -top-2 -right-16 px-3 py-1 bg-teal text-white text-xs font-semibold rounded-full">
-                          HQ
+                  <div className="relative h-48 overflow-hidden">
+                    {office.photo ? (
+                      <Image
+                        src={office.photo}
+                        alt={office.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-navy flex items-center justify-center">
+                        <span className="text-6xl font-bold text-white/20">
+                          {office.city.slice(0, 2).toUpperCase()}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
+                    {office.isPrimary && (
+                      <span className="absolute top-3 right-3 px-3 py-1 bg-teal text-white text-xs font-semibold rounded-full z-10">
+                        HQ
+                      </span>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -324,16 +333,16 @@ export default function StudioPage() {
       </section>
 
       {/* Team CTA Section */}
-      <section className="py-20 md:py-28 px-6 bg-navy">
+      <section className="py-20 md:py-28 px-6 bg-white border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">
               Meet the People Behind Mission 3A
             </h2>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.1}>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
               Our team brings together decades of experience in technology,
               healthcare, and venture building. Get to know the people who make
               our studio tick.

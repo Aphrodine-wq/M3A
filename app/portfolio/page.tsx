@@ -199,7 +199,7 @@ interface StatsSummaryProps {
 
 function StatsSummary({ filteredCount, totalCount, industryCounts }: StatsSummaryProps) {
   return (
-    <div className="bg-gray-50 rounded-2xl p-6 md:p-8">
+    <div className="bg-white border border-border rounded-2xl p-6 md:p-8">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         {/* Total Count */}
         <div className="flex items-center gap-4">
@@ -325,7 +325,7 @@ export default function PortfolioPage() {
       {/* ==========================================================================
           HERO SECTION
           ========================================================================== */}
-      <section className="bg-gray-50 pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="bg-white pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             {/* Eyebrow */}

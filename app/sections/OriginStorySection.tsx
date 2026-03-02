@@ -9,14 +9,14 @@ export function OriginStorySection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="text-[#3B82F6] font-semibold text-sm uppercase tracking-wider mb-4 block">
+            <span className="text-teal font-semibold text-sm uppercase tracking-wider mb-4 block">
               Our Journey
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A3C6E] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4">
               Origin Story
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Three decades of building transformative companies led to Mission 3A
+              Over two decades of building transformative companies led to Mission 3A
             </p>
           </div>
         </ScrollReveal>
@@ -39,7 +39,7 @@ export function OriginStorySection() {
                   <div className={`w-full md:w-5/12 ${
                     index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'
                   } pl-12 md:pl-0`}>
-                    <div className="bg-gray-50 rounded-xl p-6 md:p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm hover:shadow-lg transition-shadow duration-300">
                       <span className="inline-block px-3 py-1 bg-[#1A3C6E] text-white text-sm font-semibold rounded-full mb-3">
                         {event.year}
                       </span>

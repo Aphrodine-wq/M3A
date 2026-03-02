@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   HeartPulse,
   Stethoscope,
@@ -95,25 +96,29 @@ export default function HealthcarePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative bg-navy pt-32 pb-24 md:pt-44 md:pb-36 px-6 overflow-hidden">
+      <section className="relative bg-white pt-32 pb-24 md:pt-44 md:pb-36 px-6 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-28 left-[12%] h-64 w-64 rounded-full bg-teal/10 blur-3xl" />
+          <div className="absolute -bottom-28 right-[10%] h-72 w-72 rounded-full bg-accent-blue/10 blur-3xl" />
+        </div>
 
-        <div className="relative max-w-4xl mx-auto text-center text-white">
+        <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-6 border border-white/20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-navy/5 text-navy text-sm font-medium rounded-full mb-6 border border-navy/10">
               <HeartPulse className="w-4 h-4 text-teal" />
               Healthcare & MedTech
             </span>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.1}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
               Building the Future of{" "}
               <span className="text-teal">Healthcare</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.2}>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
               Mission 3A has deep roots in healthcare technology, from co-founding AirStrip — a
               pioneer in mobile patient monitoring — to building a portfolio of companies
               transforming how care is delivered.
@@ -131,7 +136,7 @@ export default function HealthcarePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
+                className="bg-white text-navy border border-navy/30 hover:bg-navy/5"
               >
                 <Link href="/contact">
                   Partner With Us
@@ -215,7 +220,7 @@ export default function HealthcarePage() {
       </section>
 
       {/* Focus Areas */}
-      <section className="py-20 md:py-28 px-6 bg-muted/30">
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -309,7 +314,7 @@ export default function HealthcarePage() {
 
       {/* Healthcare Advisory Board */}
       {healthcareAdvisors.length > 0 && (
-        <section className="py-20 md:py-28 px-6 bg-muted/30">
+        <section className="py-20 md:py-28 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal animation="fade-up">
               <div className="text-center max-w-2xl mx-auto mb-16">
@@ -329,6 +334,7 @@ export default function HealthcarePage() {
             <ScrollRevealGroup staggerDelay={0.12} columns={{ sm: 1, md: 2, lg: 3 }} gap="lg">
               {healthcareAdvisors.map((advisor, index) => {
                 const scheme = advisorColorSchemes[index % advisorColorSchemes.length];
+                const hasPhoto = advisor.photo && advisor.photo.startsWith('/');
                 return (
                   <Link
                     key={advisor.id}
@@ -336,13 +342,25 @@ export default function HealthcarePage() {
                     className="group block bg-white rounded-2xl border border-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <div
-                        className={`w-14 h-14 rounded-2xl ${scheme.bg} ${scheme.text} flex items-center justify-center text-lg font-bold flex-shrink-0`}
-                      >
-                        {getInitials(advisor.name)}
-                      </div>
+                      {hasPhoto ? (
+                        <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
+                          <Image
+                            src={advisor.photo}
+                            alt={advisor.name}
+                            width={56}
+                            height={56}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={`w-14 h-14 rounded-2xl ${scheme.bg} ${scheme.text} flex items-center justify-center text-lg font-bold flex-shrink-0`}
+                        >
+                          {getInitials(advisor.name)}
+                        </div>
+                      )}
                       <div>
-                        <h3 className="font-bold text-navy group-hover:text-accent-blue transition-colors">
+                        <h3 className="font-bold text-navy group-hover:text-teal transition-colors">
                           {advisor.name}
                         </h3>
                         <p className="text-sm text-muted-foreground">{advisor.externalTitle}</p>
@@ -373,17 +391,17 @@ export default function HealthcarePage() {
       )}
 
       {/* CTA */}
-      <section className="py-20 md:py-28 px-6 bg-navy">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      <section className="py-20 md:py-28 px-6 bg-white border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
             <Award className="w-12 h-12 text-teal mx-auto mb-6 opacity-80" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">
               Building a Healthcare Company?
             </h2>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.1}>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
               If you have a healthcare idea you believe in, we want to hear about it. Our studio
               model provides the capital, clinical expertise, and operational infrastructure to
               give your company the best possible start.
@@ -401,7 +419,7 @@ export default function HealthcarePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white/10 text-white border border-white/30 hover:bg-white/20"
+                className="bg-white text-navy border border-navy/30 hover:bg-navy/5"
               >
                 <Link href="/studio">
                   Learn How We Work

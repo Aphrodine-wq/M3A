@@ -114,7 +114,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
   return (
     <div className="min-h-screen bg-background">
       {/* Back Navigation */}
-      <div className="bg-muted/30 border-b border-border">
+      <div className="bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link
             href="/team"
@@ -127,12 +127,16 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
       </div>
 
       {/* Hero Section */}
-      <section className="bg-navy py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-16 left-[10%] h-48 w-48 rounded-full bg-teal/10 blur-3xl" />
+          <div className="absolute -bottom-20 right-[8%] h-56 w-56 rounded-full bg-accent-blue/10 blur-3xl" />
+        </div>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
             {/* Avatar */}
             <ScrollReveal animation="scale">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-lg border-4 border-white/70">
                 {isPhotoUrl(member.photo) ? (
                   <Image
                     src={member.photo}
@@ -163,7 +167,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
               </ScrollReveal>
 
               <ScrollReveal animation="fade-up" delay={0.2}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-3">
                   {member.name}
                 </h1>
               </ScrollReveal>
@@ -176,7 +180,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
 
               {member.externalTitle && (
                 <ScrollReveal animation="fade-up" delay={0.4}>
-                  <p className="text-white/70 text-lg mb-6">
+                  <p className="text-muted-foreground text-lg mb-6">
                     {member.externalTitle}
                   </p>
                 </ScrollReveal>
@@ -190,7 +194,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
                       href={member.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 text-navy rounded-lg transition-colors"
                     >
                       <Linkedin className="w-5 h-5" />
                       <span className="font-medium">LinkedIn</span>
@@ -198,7 +202,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
                   )}
                   <a
                     href="mailto:hello@mission3a.com"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-navy/5 hover:bg-navy/10 text-navy rounded-lg transition-colors"
                   >
                     <Mail className="w-5 h-5" />
                     <span className="font-medium">Contact</span>
@@ -282,7 +286,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
 
       {/* Related Team Members */}
       {relatedMembers.length > 0 && (
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 border-t border-border">
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-border">
           <div className="max-w-7xl mx-auto">
             <ScrollReveal animation="fade-up">
               <h2 className="text-2xl font-semibold text-navy mb-8">
@@ -337,16 +341,16 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
       )}
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-navy">
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-4">
               Work with {member.name.split(" ")[0]}
             </h2>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={0.1}>
-            <p className="text-white/80 mb-8 max-w-xl mx-auto">
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Interested in collaborating or learning more about our venture studio?
               We&apos;d love to hear from you.
             </p>
@@ -362,7 +366,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
               </Link>
               <Link
                 href="/team"
-                className="inline-flex items-center justify-center px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg backdrop-blur transition-colors"
+                className="inline-flex items-center justify-center px-8 py-3 border-2 border-navy text-navy hover:bg-navy/5 font-semibold rounded-lg transition-colors"
               >
                 View Full Team
               </Link>
