@@ -49,7 +49,7 @@ function HeroSection() {
   const collectiveYears = "200+";
 
   return (
-    <section className="relative bg-gradient-healthcare py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-gradient-healthcare pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -72,8 +72,8 @@ function HeroSection() {
 
         <ScrollReveal animation="fade-up" delay={0.2}>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            A collective of {collectiveYears} years of experience across venture capital, 
-            technology, healthcare, and entrepreneurship. Meet the people building 
+            A collective of {collectiveYears} years of experience across venture capital,
+            technology, healthcare, and entrepreneurship. Meet the people building
             the next generation of transformative companies.
           </p>
         </ScrollReveal>
@@ -338,35 +338,35 @@ function FounderCardContent({
   colors: ReturnType<typeof getColorScheme>;
 }) {
   return (
-      <div className="relative bg-white rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-navy to-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+    <div className="relative bg-white rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-navy to-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-        <div className="flex flex-col items-center text-center">
-          <div
-            className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
-          >
-            <span className={`text-2xl font-bold ${colors.text}`}>
-              {getInitials(member.name)}
-            </span>
-          </div>
-
-          <h3 className="text-lg font-semibold text-navy mb-1 group-hover:text-accent-blue transition-colors">
-            {member.name}
-          </h3>
-          <p className="text-sm text-navy/70 font-medium mb-3">{member.role}</p>
-
-          {/* Associated Company */}
-          {member.associatedCompanyName && (
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy/5 text-navy text-sm font-medium rounded-full">
-              <Building2 className="w-4 h-4" />
-              {member.associatedCompanyName}
-            </div>
-          )}
+      <div className="flex flex-col items-center text-center">
+        <div
+          className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
+        >
+          <span className={`text-2xl font-bold ${colors.text}`}>
+            {getInitials(member.name)}
+          </span>
         </div>
 
+        <h3 className="text-lg font-semibold text-navy mb-1 group-hover:text-accent-blue transition-colors">
+          {member.name}
+        </h3>
+        <p className="text-sm text-navy/70 font-medium mb-3">{member.role}</p>
+
+        {/* Associated Company */}
+        {member.associatedCompanyName && (
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy/5 text-navy text-sm font-medium rounded-full">
+            <Building2 className="w-4 h-4" />
+            {member.associatedCompanyName}
+          </div>
+        )}
       </div>
-    );
-  }
+
+    </div>
+  );
+}
 
 // ============================================================================
 // MAIN TEAM PAGE
@@ -444,7 +444,7 @@ export default function TeamPage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground max-w-2xl">
-                    Distinguished healthcare leaders who provide clinical expertise, regulatory guidance, 
+                    Distinguished healthcare leaders who provide clinical expertise, regulatory guidance,
                     and strategic insights to our MedTech portfolio companies.
                   </p>
                 </div>
@@ -517,7 +517,7 @@ export default function TeamPage() {
 
           <ScrollReveal animation="fade-up" delay={0.1}>
             <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              We&apos;re always looking for exceptional talent to join our studio team 
+              We&apos;re always looking for exceptional talent to join our studio team
               or lead our next portfolio company.
             </p>
           </ScrollReveal>

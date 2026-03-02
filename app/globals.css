@@ -83,6 +83,12 @@
   }
 }
 
+/* ScrollReveal animation class - used by homepage sections */
+.scroll-reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {

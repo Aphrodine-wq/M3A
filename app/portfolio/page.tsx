@@ -46,18 +46,16 @@ function FilterButton({ label, isActive, onClick, count }: FilterButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-        isActive
+      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${isActive
           ? "bg-navy text-white shadow-md"
           : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
-      }`}
+        }`}
     >
       {label}
       {count !== undefined && (
         <span
-          className={`ml-2 px-1.5 py-0.5 rounded-full text-xs ${
-            isActive ? "bg-white/20" : "bg-gray-100"
-          }`}
+          className={`ml-2 px-1.5 py-0.5 rounded-full text-xs ${isActive ? "bg-white/20" : "bg-gray-100"
+            }`}
         >
           {count}
         </span>
@@ -224,15 +222,14 @@ function StatsSummary({ filteredCount, totalCount, industryCounts }: StatsSummar
           {industries.map((industry) => (
             <div key={industry} className="flex items-center gap-2">
               <div
-                className={`w-3 h-3 rounded-full ${
-                  industry === "Healthcare"
+                className={`w-3 h-3 rounded-full ${industry === "Healthcare"
                     ? "bg-teal-500"
                     : industry === "IoT"
-                    ? "bg-blue-500"
-                    : industry === "Consumer"
-                    ? "bg-purple-500"
-                    : "bg-indigo-500"
-                }`}
+                      ? "bg-blue-500"
+                      : industry === "Consumer"
+                        ? "bg-purple-500"
+                        : "bg-indigo-500"
+                  }`}
               />
               <span className="text-sm text-gray-600">
                 {industry}: {" "}
@@ -328,7 +325,7 @@ export default function PortfolioPage() {
       {/* ==========================================================================
           HERO SECTION
           ========================================================================== */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-gray-50 to-white pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             {/* Eyebrow */}

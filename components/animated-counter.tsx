@@ -91,11 +91,11 @@ function AnimatedCounter({
   once = true,
   springConfig = { stiffness: 50, damping: 20, mass: 1 },
   formatFn,
-  viewportMargin = "-100px",
+  viewportMargin = "0px",
 }: AnimatedCounterProps) {
   const ref = React.useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { 
-    once, 
+  const isInView = useInView(ref, {
+    once,
     margin: viewportMargin as any
   });
   const [hasAnimated, setHasAnimated] = React.useState(false);

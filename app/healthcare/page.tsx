@@ -95,7 +95,7 @@ export default function HealthcarePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative bg-gradient-healthcare py-24 md:py-36 px-6 overflow-hidden">
+      <section className="relative bg-gradient-healthcare pt-32 pb-24 md:pt-44 md:pb-36 px-6 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/30 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-blue/30 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />

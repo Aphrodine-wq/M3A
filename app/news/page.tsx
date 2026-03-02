@@ -51,17 +51,15 @@ function CategoryPill({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-        isActive
+      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${isActive
           ? "bg-navy text-white shadow-md"
           : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
-      }`}
+        }`}
     >
       {label}
       <span
-        className={`ml-2 px-1.5 py-0.5 rounded-full text-xs ${
-          isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"
-        }`}
+        className={`ml-2 px-1.5 py-0.5 rounded-full text-xs ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"
+          }`}
       >
         {count}
       </span>
@@ -141,13 +139,12 @@ function ArticleCard({ post }: { post: BlogPost }) {
       <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
         {/* Color strip */}
         <div
-          className={`h-1.5 w-full ${
-            post.category === "Articles"
+          className={`h-1.5 w-full ${post.category === "Articles"
               ? "bg-blue-500"
               : post.category === "Press Releases"
-              ? "bg-purple-500"
-              : "bg-green-500"
-          }`}
+                ? "bg-purple-500"
+                : "bg-green-500"
+            }`}
         />
 
         <div className="p-6 flex flex-col flex-1">
@@ -222,7 +219,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+      <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
