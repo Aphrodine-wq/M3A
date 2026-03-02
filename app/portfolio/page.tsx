@@ -148,7 +148,7 @@ function CompanyCard({ company }: CompanyCardProps) {
         </CardFooter>
 
         {/* Hover overlay with additional details */}
-        <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-navy/95 via-navy/90 to-transparent rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+        <div className="absolute inset-x-0 bottom-0 p-4 bg-navy/90 rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
           <p className="text-white text-sm font-medium flex items-center gap-2">
             View Company Details
             <ArrowRight className="w-4 h-4" />
@@ -325,7 +325,7 @@ export default function PortfolioPage() {
       {/* ==========================================================================
           HERO SECTION
           ========================================================================== */}
-      <section className="bg-gradient-to-b from-gray-50 to-white pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="bg-gray-50 pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             {/* Eyebrow */}

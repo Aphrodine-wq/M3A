@@ -64,9 +64,6 @@ export default function StudioPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/5 to-transparent pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
@@ -225,7 +222,7 @@ export default function StudioPage() {
           {/* Timeline */}
           <div className="relative">
             {/* Connecting line - desktop */}
-            <div className="hidden lg:block absolute top-24 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-navy/20 via-accent-blue/30 to-teal/20" />
+            <div className="hidden lg:block absolute top-24 left-[10%] right-[10%] h-0.5 bg-navy/20" />
 
             <ScrollRevealGroup
               staggerDelay={0.15}
@@ -271,12 +268,8 @@ export default function StudioPage() {
               >
                 <div className="group bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   {/* Placeholder Image Area */}
-                  <div className="relative h-48 bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,_rgba(59,130,246,0.3)_0%,_transparent_50%)]" />
-                      <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_70%,_rgba(20,184,166,0.3)_0%,_transparent_50%)]" />
-                    </div>
-                    <div className="relative z-10 text-center">
+                  <div className="relative h-48 bg-navy flex items-center justify-center overflow-hidden">
+                    <div className="text-center">
                       <span className="text-6xl font-bold text-white/20">
                         {office.city.slice(0, 2).toUpperCase()}
                       </span>
@@ -331,7 +324,7 @@ export default function StudioPage() {
       </section>
 
       {/* Team CTA Section */}
-      <section className="py-20 md:py-28 px-6 bg-gradient-to-b from-navy to-navy-dark">
+      <section className="py-20 md:py-28 px-6 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">

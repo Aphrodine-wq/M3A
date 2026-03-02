@@ -136,8 +136,7 @@ export default function NewsArticleClient({ slug }: { slug: string }) {
   return (
     <div className="min-h-screen bg-background">
       {/* Article Header */}
-      <section className="relative py-16 md:py-24 px-6 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-16 md:py-24 px-6 overflow-hidden bg-gray-50">
 
         <div className="relative max-w-3xl mx-auto">
           {/* Back link */}
@@ -218,12 +217,8 @@ export default function NewsArticleClient({ slug }: { slug: string }) {
       </section>
 
       {/* Hero image placeholder */}
-      <div className="relative h-64 md:h-80 bg-gradient-to-br from-navy to-navy-dark overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,_rgba(59,130,246,0.25)_0%,_transparent_60%)]" />
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_50%,_rgba(20,184,166,0.2)_0%,_transparent_60%)]" />
-        </div>
-        <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative h-64 md:h-80 bg-navy overflow-hidden">
+        <div className="h-full flex items-center justify-center">
           <Newspaper className="w-20 h-20 text-white/15" />
         </div>
       </div>

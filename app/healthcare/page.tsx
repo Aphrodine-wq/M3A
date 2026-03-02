@@ -95,11 +95,7 @@ export default function HealthcarePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative bg-gradient-healthcare pt-32 pb-24 md:pt-44 md:pb-36 px-6 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/30 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-blue/30 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
-        </div>
+      <section className="relative bg-navy pt-32 pb-24 md:pt-44 md:pb-36 px-6 overflow-hidden">
 
         <div className="relative max-w-4xl mx-auto text-center text-white">
           <ScrollReveal animation="fade-up">
@@ -377,7 +373,7 @@ export default function HealthcarePage() {
       )}
 
       {/* CTA */}
-      <section className="py-20 md:py-28 px-6 bg-gradient-healthcare">
+      <section className="py-20 md:py-28 px-6 bg-navy">
         <div className="max-w-4xl mx-auto text-center text-white">
           <ScrollReveal animation="fade-up">
             <Award className="w-12 h-12 text-teal mx-auto mb-6 opacity-80" />

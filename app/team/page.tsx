@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/scroll-reveal";
 import {
   teamMembers,
@@ -27,6 +28,10 @@ function getColorScheme(index: number) {
   return colorSchemes[index % colorSchemes.length];
 }
 
+function isPhotoUrl(photo: string): boolean {
+  return photo.startsWith('/');
+}
+
 function getInitials(name: string): string {
   return name
     .split(" ")
@@ -49,12 +54,7 @@ function HeroSection() {
   const collectiveYears = "200+";
 
   return (
-    <section className="relative bg-gradient-healthcare pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-      </div>
+    <section className="relative bg-navy pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
 
       <div className="relative max-w-7xl mx-auto text-center">
         <ScrollReveal animation="fade-up">
@@ -145,16 +145,24 @@ function LeadershipCard({ member, index }: { member: TeamMember; index: number }
     <Link href={`/team/${member.slug}`} className="group block">
       <div className="relative bg-white rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-accent-blue/30 h-full">
         {/* Hover accent line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal to-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-teal rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <div className="flex flex-col items-center text-center">
           {/* Photo/Initials */}
-          <div
-            className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
-          >
-            <span className={`text-2xl font-bold ${colors.text}`}>
-              {getInitials(member.name)}
-            </span>
+          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+            {isPhotoUrl(member.photo) ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className={`w-full h-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
+                <span className={`text-2xl font-bold ${colors.text}`}>{getInitials(member.name)}</span>
+              </div>
+            )}
           </div>
 
           {/* Name & Title */}
@@ -196,15 +204,23 @@ function VenturePartnerCard({ member, index }: { member: TeamMember; index: numb
   return (
     <Link href={`/team/${member.slug}`} className="group block">
       <div className="relative bg-white rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-accent-blue/30 h-full">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-blue to-navy rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <div className="flex flex-col items-center text-center">
-          <div
-            className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
-          >
-            <span className={`text-2xl font-bold ${colors.text}`}>
-              {getInitials(member.name)}
-            </span>
+          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+            {isPhotoUrl(member.photo) ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className={`w-full h-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
+                <span className={`text-2xl font-bold ${colors.text}`}>{getInitials(member.name)}</span>
+              </div>
+            )}
           </div>
 
           <h3 className="text-lg font-semibold text-navy mb-1 group-hover:text-accent-blue transition-colors">
@@ -236,7 +252,7 @@ function HealthcareAdvisorCard({ member, index }: { member: TeamMember; index: n
   return (
     <Link href={`/team/${member.slug}`} className="group block">
       <div className="relative bg-white rounded-2xl border-2 border-teal/10 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-teal/40 h-full">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal to-teal-light rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-teal rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
         {/* Badge */}
         <div className="absolute top-4 right-4">
@@ -247,12 +263,20 @@ function HealthcareAdvisorCard({ member, index }: { member: TeamMember; index: n
         </div>
 
         <div className="flex flex-col items-center text-center pt-4">
-          <div
-            className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
-          >
-            <span className={`text-2xl font-bold ${colors.text}`}>
-              {getInitials(member.name)}
-            </span>
+          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+            {isPhotoUrl(member.photo) ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className={`w-full h-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
+                <span className={`text-2xl font-bold ${colors.text}`}>{getInitials(member.name)}</span>
+              </div>
+            )}
           </div>
 
           <h3 className="text-lg font-semibold text-navy mb-1 group-hover:text-teal transition-colors">
@@ -284,12 +308,20 @@ function StudioTeamCard({ member, index }: { member: TeamMember; index: number }
   return (
     <div className="group bg-white rounded-xl border border-border p-4 transition-all duration-200 hover:shadow-md hover:border-accent-blue/20">
       <div className="flex items-center gap-4">
-        <div
-          className={`w-12 h-12 rounded-full ${colors.bg} ${colors.border} border flex items-center justify-center flex-shrink-0`}
-        >
-          <span className={`text-sm font-bold ${colors.text}`}>
-            {getInitials(member.name)}
-          </span>
+        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+          {isPhotoUrl(member.photo) ? (
+            <Image
+              src={member.photo}
+              alt={member.name}
+              width={48}
+              height={48}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className={`w-full h-full ${colors.bg} ${colors.border} border flex items-center justify-center`}>
+              <span className={`text-sm font-bold ${colors.text}`}>{getInitials(member.name)}</span>
+            </div>
+          )}
         </div>
 
         <div className="min-w-0">
@@ -339,15 +371,23 @@ function FounderCardContent({
 }) {
   return (
     <div className="relative bg-white rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-navy to-accent-blue rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-navy rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
       <div className="flex flex-col items-center text-center">
-        <div
-          className={`w-24 h-24 rounded-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105`}
-        >
-          <span className={`text-2xl font-bold ${colors.text}`}>
-            {getInitials(member.name)}
-          </span>
+        <div className="w-24 h-24 rounded-full overflow-hidden mb-4 transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+          {isPhotoUrl(member.photo) ? (
+            <Image
+              src={member.photo}
+              alt={member.name}
+              width={96}
+              height={96}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className={`w-full h-full ${colors.bg} ${colors.border} border-2 flex items-center justify-center`}>
+              <span className={`text-2xl font-bold ${colors.text}`}>{getInitials(member.name)}</span>
+            </div>
+          )}
         </div>
 
         <h3 className="text-lg font-semibold text-navy mb-1 group-hover:text-accent-blue transition-colors">
@@ -507,7 +547,7 @@ export default function TeamPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-healthcare">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

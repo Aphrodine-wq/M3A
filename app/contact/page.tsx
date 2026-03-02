@@ -50,8 +50,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/5 to-transparent pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
@@ -205,9 +203,7 @@ export default function ContactPage() {
             {/* Direct Contact Card */}
             <ScrollReveal animation="fade-left" delay={0.1}>
               <div className="bg-navy rounded-2xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/20 rounded-full blur-2xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal/20 rounded-full blur-2xl" />
-                <div className="relative z-10">
+                  <div>
                   <h3 className="text-xl font-bold mb-6">Direct Contact</h3>
                   <a
                     href="mailto:hello@mission3a.com"

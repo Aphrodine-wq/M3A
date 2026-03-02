@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import {
@@ -20,18 +21,22 @@ import {
 
 // Color schemes for initials avatars
 const colorSchemes = [
-  { bg: "bg-teal/10", text: "text-teal", border: "border-teal/20", gradient: "from-teal to-teal-light" },
-  { bg: "bg-accent-blue/10", text: "text-accent-blue", border: "border-accent-blue/20", gradient: "from-accent-blue to-accent-blue-light" },
-  { bg: "bg-navy/10", text: "text-navy", border: "border-navy/20", gradient: "from-navy to-navy-light" },
-  { bg: "bg-purple-500/10", text: "text-purple-600", border: "border-purple-500/20", gradient: "from-purple-500 to-purple-400" },
-  { bg: "bg-amber-500/10", text: "text-amber-600", border: "border-amber-500/20", gradient: "from-amber-500 to-amber-400" },
-  { bg: "bg-rose-500/10", text: "text-rose-600", border: "border-rose-500/20", gradient: "from-rose-500 to-rose-400" },
-  { bg: "bg-emerald-500/10", text: "text-emerald-600", border: "border-emerald-500/20", gradient: "from-emerald-500 to-emerald-400" },
-  { bg: "bg-indigo-500/10", text: "text-indigo-600", border: "border-indigo-500/20", gradient: "from-indigo-500 to-indigo-400" },
+  { bg: "bg-teal/10", text: "text-teal", border: "border-teal/20" },
+  { bg: "bg-accent-blue/10", text: "text-accent-blue", border: "border-accent-blue/20" },
+  { bg: "bg-navy/10", text: "text-navy", border: "border-navy/20" },
+  { bg: "bg-purple-500/10", text: "text-purple-600", border: "border-purple-500/20" },
+  { bg: "bg-amber-500/10", text: "text-amber-600", border: "border-amber-500/20" },
+  { bg: "bg-rose-500/10", text: "text-rose-600", border: "border-rose-500/20" },
+  { bg: "bg-emerald-500/10", text: "text-emerald-600", border: "border-emerald-500/20" },
+  { bg: "bg-indigo-500/10", text: "text-indigo-600", border: "border-indigo-500/20" },
 ];
 
 function getColorScheme(index: number) {
   return colorSchemes[index % colorSchemes.length];
+}
+
+function isPhotoUrl(photo: string): boolean {
+  return photo.startsWith('/');
 }
 
 function getInitials(name: string): string {
@@ -122,17 +127,27 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-healthcare py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-navy py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
             {/* Avatar */}
             <ScrollReveal animation="scale">
-              <div
-                className={`w-32 h-32 md:w-40 md:h-40 rounded-2xl ${colorScheme.bg} ${colorScheme.border} border-4 flex items-center justify-center shadow-2xl`}
-              >
-                <span className={`text-4xl md:text-5xl font-bold ${colorScheme.text}`}>
-                  {getInitials(member.name)}
-                </span>
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+                {isPhotoUrl(member.photo) ? (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className={`w-full h-full ${colorScheme.bg} ${colorScheme.border} flex items-center justify-center`}>
+                    <span className={`text-4xl md:text-5xl font-bold ${colorScheme.text}`}>
+                      {getInitials(member.name)}
+                    </span>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
 
@@ -226,7 +241,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
           {/* Associated Company (for Founders) */}
           {associatedCompany && (
             <ScrollReveal animation="fade-up" delay={0.2}>
-              <div className="mt-8 bg-gradient-to-br from-navy/5 to-accent-blue/5 rounded-2xl border border-navy/10 p-6 md:p-8">
+              <div className="mt-8 bg-navy/5 rounded-2xl border border-navy/10 p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-navy/10 rounded-lg">
                     <Building2 className="w-5 h-5 text-navy" />
@@ -284,12 +299,22 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
                       href={`/team/${relatedMember.slug}`}
                       className="group flex items-center gap-4 bg-white rounded-xl border border-border p-4 transition-all duration-300 hover:shadow-md hover:border-accent-blue/30"
                     >
-                      <div
-                        className={`w-16 h-16 rounded-xl ${relatedColor.bg} ${relatedColor.border} border flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105`}
-                      >
-                        <span className={`text-lg font-bold ${relatedColor.text}`}>
-                          {getInitials(relatedMember.name)}
-                        </span>
+                      <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                        {isPhotoUrl(relatedMember.photo) ? (
+                          <Image
+                            src={relatedMember.photo}
+                            alt={relatedMember.name}
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className={`w-full h-full ${relatedColor.bg} ${relatedColor.border} border flex items-center justify-center`}>
+                            <span className={`text-lg font-bold ${relatedColor.text}`}>
+                              {getInitials(relatedMember.name)}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="flex-1 min-w-0">
@@ -312,7 +337,7 @@ export default function TeamMemberDetailClient({ slug }: TeamMemberDetailClientP
       )}
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-healthcare">
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">

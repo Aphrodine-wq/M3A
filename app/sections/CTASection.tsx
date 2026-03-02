@@ -7,21 +7,6 @@ import { ArrowRight } from 'lucide-react';
 export function CTASection() {
   return (
     <section className="py-20 md:py-28 bg-[#1A3C6E] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)',
-          }}
-        />
-        <div 
-          className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)',
-          }}
-        />
-      </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>

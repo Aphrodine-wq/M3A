@@ -72,14 +72,11 @@
 
   /* Healthcare-specific utilities */
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent-blue);
   }
 
   .bg-gradient-healthcare {
-    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+    background: var(--color-navy);
   }
 }
 

@@ -51,7 +51,7 @@ export function NewsSection() {
               <Link href={`/news/${featuredArticle.slug}`}>
                 <div className="group h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col">
                   {/* Featured Image Placeholder */}
-                  <div className="h-64 md:h-80 bg-gradient-to-br from-[#1A3C6E] to-[#3B82F6] flex items-center justify-center">
+                  <div className="h-64 md:h-80 bg-navy flex items-center justify-center">
                     <div className="text-white text-center p-8">
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${categoryColors[featuredArticle.category]}`}>
                         {featuredArticle.category}

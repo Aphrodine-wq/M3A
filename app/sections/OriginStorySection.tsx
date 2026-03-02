@@ -24,10 +24,10 @@ export function OriginStorySection() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line - hidden on mobile */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#1A3C6E] via-[#3B82F6] to-teal-500" />
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-navy/30" />
 
           {/* Mobile vertical line */}
-          <div className="md:hidden absolute left-4 h-full w-0.5 bg-gradient-to-b from-[#1A3C6E] via-[#3B82F6] to-teal-500" />
+          <div className="md:hidden absolute left-4 h-full w-0.5 bg-navy/30" />
 
           <div className="space-y-12 md:space-y-16">
             {originTimeline.map((event, index) => (

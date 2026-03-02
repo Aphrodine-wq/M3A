@@ -76,12 +76,8 @@ function FeaturedCard({ post }: { post: BlogPost }) {
       <Link href={`/news/${post.slug}`} className="group block">
         <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 lg:grid lg:grid-cols-2">
           {/* Image placeholder */}
-          <div className="h-56 lg:h-auto bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,_rgba(59,130,246,0.3)_0%,_transparent_50%)]" />
-              <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,_rgba(20,184,166,0.25)_0%,_transparent_50%)]" />
-            </div>
-            <div className="relative z-10 p-8 text-center">
+          <div className="h-56 lg:h-auto bg-navy flex items-center justify-center relative overflow-hidden">
+            <div className="p-8 text-center">
               <Newspaper className="w-16 h-16 text-white/20 mx-auto mb-4" />
               <span
                 className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${styles.bg} ${styles.text}`}
@@ -219,8 +215,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-24 md:pt-40 md:pb-32 px-6 overflow-hidden bg-gray-50">
 
         <div className="relative max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fade-up">
