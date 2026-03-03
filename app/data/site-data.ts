@@ -90,7 +90,7 @@ export const siteSettings: SiteSettings = {
     { label: 'Companies Created', value: '22', numericValue: 22, suffix: '' },
     { label: 'Capital Invested', value: '$2B+', numericValue: 2, prefix: '$', suffix: 'B+' },
     { label: 'Partners', value: '30+', numericValue: 30, suffix: '+' },
-    { label: 'Years Experience', value: '30', numericValue: 30, suffix: '' },
+    { label: 'Years Experience', value: '25', numericValue: 25, suffix: '' },
   ],
 };
 
@@ -333,7 +333,7 @@ export const aboutContent = {
 
 Our studio model combines capital, technical expertise, and operational support to dramatically increase the odds of startup success. We validate ideas, assemble teams, build MVPs, and scale companies across healthcare, IoT, consumer, and SaaS verticals.
 
-With 30 years of combined founder experience and over $2 billion in capital deployed, we've developed a systematic approach to company building that de-risks the startup journey.`,
+With 25 years of combined founder experience and over $2 billion in capital deployed, we've developed a systematic approach to company building that de-risks the startup journey.`,
   differentiators: [
     {
       title: 'Proven Track Record',
@@ -352,7 +352,7 @@ With 30 years of combined founder experience and over $2 billion in capital depl
     },
     {
       title: 'Systematic Approach',
-      description: 'Our 5-stage process (Ideate → Validate → Create → Launch → Scale) has been refined over 30 years.',
+      description: 'Our 5-stage process (Ideate → Validate → Create → Launch → Scale) has been refined over 25 years.',
       icon: 'GitBranch',
     },
   ],
